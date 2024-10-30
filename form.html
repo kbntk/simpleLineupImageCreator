@@ -1,0 +1,46 @@
+# Soccer Formation Selector
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soccer Formation Selector</title>
+<script>
+        function loadForm() {
+            var formation = document.getElementById("formationSelect").value;
+            var formFile = "";
+
+            switch (formation) {
+                case "442":
+                    formFile = "form442.html";
+                    break;
+                case "433":
+                    formFile = "form433.html";
+                    break;
+                case "352":
+                    formFile = "form352.html";
+                    break;
+            }
+
+            if (formFile) {
+            fetch(formFile)
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById("formContainer").innerHTML = data;
+                    });
+            }
+        }
+    </script>
+</head>
+<body>
+	<h1>Select Your Soccer Formation</h1>
+	<select id="formationSelect" onchange="loadForm()">
+		<option value="">Choose a formation</option>
+		<option value="442">4-4-2</option>
+		<option value="433">4-3-3</option>
+		<option value="352">3-5-2</option>
+	</select>
+	    <div id="formContainer"></div>
+</body>
+</html>
