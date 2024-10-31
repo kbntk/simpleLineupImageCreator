@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Soccer Formation Selector</title>
+<script src="./jquery-3.7.1.min.js"></script>
 <script>
         function loadForm() {
             var formation = document.getElementById("formationSelect").value;
@@ -34,6 +35,35 @@
     </script>
 </head>
 <body>
+	<label for="teamName">Team Name:</label>
+	<input type="text" id="teamName" name="teamName">
+	<button id="loadButtonFromDatabase">Load</button>
+
+	<!-- Area to display team data -->
+	<div id="teamData"></div>
+
+	<script>
+    $(document).ready(function () {
+        $('#loadButtonFromDatabase').click(function () {
+            // Get the team name from the input field
+            const teamName = $('#teamName').val();
+
+            // Send an AJAX request to the backend PHP script
+            $.ajax({
+                url: 'getTeamLinups.php',      // PHP script to process the request
+                type: 'POST',
+                data: { name: teamName },    // Data to send to the PHP script
+                success: function (response) {
+                    // Display the team data in the div
+                    $('#teamData').html(response);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        });
+    });
+</script>
 	<h1>Select Your Soccer Formation</h1>
 	<select id="formationSelect" onchange="loadForm()">
 		<option value="">Choose a formation</option>
@@ -41,6 +71,121 @@
 		<option value="433">4-3-3</option>
 		<option value="352">3-5-2</option>
 	</select>
-	    <div id="formContainer"></div>
+	<div id="formContainer"></div>
+
+
+	<button id="saveButton">Save the lineup</button>
+	    <button id="loadButton">Load the last saved lineup</button>
+
+	<script>
+    document.getElementById("saveButton").addEventListener("click", saveTheLineup);
+    document.getElementById("loadButton").addEventListener("click", loadTheLineup);
+
+    function saveTheLineup() {
+        const nameValue11 = document.getElementById("name11").value;
+        const numberValue11 = document.getElementById("number11").value;
+
+        localStorage.setItem("name11", nameValue11);
+        localStorage.setItem("number11", numberValue11);
+
+        const nameValue10 = document.getElementById("name10").value;
+        const numberValue10 = document.getElementById("number10").value;
+
+        localStorage.setItem("name10", nameValue10);
+        localStorage.setItem("number10", numberValue10);
+
+        const nameValue9 = document.getElementById("name9").value;
+        const numberValue9 = document.getElementById("number9").value;
+
+        localStorage.setItem("name9", nameValue9);
+        localStorage.setItem("number9", numberValue9);
+
+        const nameValue8 = document.getElementById("name8").value;
+        const numberValue8 = document.getElementById("number8").value;
+
+        localStorage.setItem("name8", nameValue8);
+        localStorage.setItem("number8", numberValue8);
+
+        const nameValue7 = document.getElementById("name7").value;
+        const numberValue7 = document.getElementById("number7").value;
+
+        localStorage.setItem("name7", nameValue7);
+        localStorage.setItem("number7", numberValue7);
+
+        const nameValue6 = document.getElementById("name6").value;
+        const numberValue6 = document.getElementById("number6").value;
+
+        localStorage.setItem("name6", nameValue6);
+        localStorage.setItem("number6", numberValue6);
+
+        const nameValue5 = document.getElementById("name5").value;
+        const numberValue5 = document.getElementById("number5").value;
+
+        localStorage.setItem("name5", nameValue5);
+        localStorage.setItem("number5", numberValue5);
+
+        const nameValue4 = document.getElementById("name4").value;
+        const numberValue4 = document.getElementById("number4").value;
+
+        localStorage.setItem("name4", nameValue4);
+        localStorage.setItem("number4", numberValue4);
+
+        const nameValue3 = document.getElementById("name3").value;
+        const numberValue3 = document.getElementById("number3").value;
+
+        localStorage.setItem("name3", nameValue3);
+        localStorage.setItem("number3", numberValue3);
+
+        const nameValue2 = document.getElementById("name2").value;
+        const numberValue2 = document.getElementById("number2").value;
+
+        localStorage.setItem("name2", nameValue2);
+        localStorage.setItem("number2", numberValue2);
+
+        const nameValueGk = document.getElementById("nameGk").value;
+        const numberValueGk = document.getElementById("numberGk").value;
+
+        localStorage.setItem("nameGk", nameValueGk);
+        localStorage.setItem("numberGk", numberValueGk);
+    }
+
+        function loadTheLineup() {
+            document.getElementById('name11').value = localStorage.getItem('name11');
+            document.getElementById('number11').value = localStorage.getItem('number11');
+
+            document.getElementById('name10').value = localStorage.getItem('name10');
+            document.getElementById('number10').value = localStorage.getItem('number10');
+
+            document.getElementById('name9').value = localStorage.getItem('name9');
+            document.getElementById('number9').value = localStorage.getItem('number9');
+
+            document.getElementById('name8').value = localStorage.getItem('name8');
+            document.getElementById('number8').value = localStorage.getItem('number8');
+
+            document.getElementById('name7').value = localStorage.getItem('name7');
+            document.getElementById('number7').value = localStorage.getItem('number7');
+
+            document.getElementById('name6').value = localStorage.getItem('name6');
+            document.getElementById('number6').value = localStorage.getItem('number6');
+
+            document.getElementById('name5').value = localStorage.getItem('name5');
+            document.getElementById('number5').value = localStorage.getItem('number5');
+
+            document.getElementById('name4').value = localStorage.getItem('name4');
+            document.getElementById('number4').value = localStorage.getItem('number4');
+
+            document.getElementById('name3').value = localStorage.getItem('name3');
+            document.getElementById('number3').value = localStorage.getItem('number3');
+
+            document.getElementById('name2').value = localStorage.getItem('name2');
+            document.getElementById('number2').value = localStorage.getItem('number2');
+
+            document.getElementById('nameGk').value = localStorage.getItem('nameGk');
+            document.getElementById('numberGk').value = localStorage.getItem('numberGk');
+
+        }
+        
+</script>
+
 </body>
 </html>

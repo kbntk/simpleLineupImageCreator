@@ -1,0 +1,1 @@
+for i in `mysqlloginpathlocal -e 'use lineup; show tables;' | sed -n -e '2,6 p'`; do mysqlloginpathlocal -e "use lineup; set foreign_key_checks = 0; truncate $i"; done; mysqlloginpathlocal -e "set foreign_key_checks = 1";
