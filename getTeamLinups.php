@@ -1,13 +1,10 @@
 <?php
 // Database connection details
-$servername = "localhost";
-$username = "root";
-$password = "ziobro";
-$dbname = "lineup";
+$config = require 'config.php';
 
 try {
     // Connect to the database
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn = new PDO("mysql:host={$config['db_host']};dbname={$config['db_name']}", $config['db_username'], $config['db_password']);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Check if the "name" parameter is set
