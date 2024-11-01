@@ -10,6 +10,8 @@
 <script>
         function loadForm() {
             var formation = document.getElementById("formationSelect").value;
+            document.getElementById("formationSelect").value = "";
+            
             var formFile = "";
 
             switch (formation) {

@@ -24,21 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $backgroundImage = new Field("./field.jpg", $lineupType);
-// $playerGk = new Player('./player.png', 'GK', 20, "Jakub Zakrzewski", "blue");
-// $player2 = new Player('./player.png', 2, 22, "Przemysław Gąsiorowski", "yellow");
-// $player3 = new Player('./player.png', 3, 22, "Przemysław Gąsiorowski");
-// $player4 = new Player('./player.png', 4, 22, "Przemysław Gąsiorowski", "red");
-// $player5 = new Player('./player.png', 5, 22, "Przemysław Gąsiorowski", "red");
 $resultFilename = './output/pitch' . bin2hex(random_bytes(16)) . '.jpg';
 foreach ($players as $player) {
     $backgroundImage->addPlayer($player);
 }
 unset($player);
-// $backgroundImage->addPlayer($playerGk);
-// $backgroundImage->addPlayer($player2);
-// $backgroundImage->addPlayer($player3);
-// $backgroundImage->addPlayer($player4);
-// $backgroundImage->addPlayer($player5);
 $result = $backgroundImage->saveAs($resultFilename);
 ?>
 <html>

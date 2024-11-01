@@ -13,8 +13,14 @@
 }
 </style>
 <form action="showField.php" method="post">
-<!-- strikers -->
     <div class="row">
+        <div class="col">
+            <label for="name9">Name 9:</label>
+            <input type="text" id="name9" name="name9" required>
+<br/>
+            <label for="number9">Number 9:</label>
+            <input type="number" id="number9" name="number9" min="1" max="99" required>
+        </div>
         <div class="col">
             <label for="name10">Name 10:</label>
             <input type="text" id="name10" name="name10" required>
@@ -52,13 +58,6 @@
 <br/>
             <label for="number8">Number 8:</label>
             <input type="number" id="number8" name="number8" min="1" max="99" required>
-        </div>
-        <div class="col">
-            <label for="name9">Name 9:</label>
-            <input type="text" id="name9" name="name9" required>
-<br/>
-            <label for="number9">Number 9:</label>
-            <input type="number" id="number9" name="number9" min="1" max="99" required>
         </div>
     </div>
     <div class="row">
@@ -100,7 +99,7 @@
             <input type="number" id="numberGk" name="numberGk" min="1" max="99" required>
         </div>
     </div>
-        <input type="hidden" name="lineupType" value="442">
+        <input type="hidden" name="lineupType" value="433">
     <button type="submit">Create the lineup!</button>
 </form>
 
